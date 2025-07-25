@@ -31,25 +31,7 @@
             ignored-layers = <>;
         };
 
-        // Conditional layer access based on OS mode
 
-        lower_conditional: lower_conditional {
-            compatible = "zmk,behavior-mod-morph";
-            label = "LOWER_CONDITIONAL";
-            #binding-cells = <0>;
-            bindings = <&mo LOWER>, <&mo LOWER_MACOS>;
-
-
-        };
-
-        raise_conditional: raise_conditional {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RAISE_CONDITIONAL";
-            #binding-cells = <0>;
-            bindings = <&mo RAISE>, <&mo RAISE_MACOS>;
-
-
-        };
     };
 
     // Conditional layers
@@ -283,7 +265,7 @@
 &kp TAB    &kp Q   &kp W     &kp E     &kp R               &kp T                              &kp Y      &kp U               &kp I      &kp O     &kp P     &kp EQUAL
 &kp LSHFT  &kp A   &kp S     &kp D     &kp F               &kp G                              &kp H      &kp J               &kp K      &kp L     &kp SEMI  &kp COLON
 &kp LCTRL  &kp Z   &kp X     &kp C     &kp V               &kp B      &kp C_MUTE    &kp C_PP  &kp N      &kp M               &kp COMMA  &kp DOT   &kp FSLH  &kp BSLH
-                   &kp LGUI  &kp LALT  &raise_conditional  &kp SPACE  &kp RET       &kp BSPC  &kp SPACE  &lower_conditional  &kp LBKT   &kp RBKT
+                   &kp LGUI  &kp LALT  &mo RAISE  &kp SPACE  &kp RET       &kp BSPC  &kp SPACE  &mo LOWER  &kp LBKT   &kp RBKT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN>;
