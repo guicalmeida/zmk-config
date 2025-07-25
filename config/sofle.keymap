@@ -21,17 +21,11 @@
     // Tri-state behavior for OS mode switching
 
     behaviors {
-        os_mode_toggle: os_mode_toggle {
-            compatible = "zmk,behavior-tri-state";
-            label = "OS_MODE_TOGGLE";
+        mac_mode: mac_mode {
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&tog LOWER_MACOS>, <&tog RAISE_MACOS>, <&none>;
-
-            ignored-key-positions = <>;
-            ignored-layers = <>;
+            bindings = <&macro_tap>, <&tog LOWER_MACOS>, <&macro_tap>, <&tog RAISE_MACOS>;
         };
-
-
     };
 
     // Conditional layers
@@ -300,11 +294,11 @@
         adjust_layer {
             label = "adjust";
             bindings = <
-&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none            &none  &none  &none  &none
-&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none            &none  &none  &none  &none
-&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &none            &none  &none  &none  &none
-&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &os_mode_toggle  &none  &none  &none  &none
-                                    &none            &none            &none            &none            &none              &none  &none  &none            &none  &none
+&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none         &none  &none  &none  &none
+&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none         &none  &none  &none  &none
+&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &none         &none  &none  &none  &none
+&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &mac_mode     &none  &none  &none  &none
+                                    &none            &none            &none            &none            &none              &none  &none  &none         &none  &none
             >;
         };
 
