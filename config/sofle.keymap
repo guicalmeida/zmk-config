@@ -14,33 +14,17 @@
 #define LOWER 1
 #define RAISE 2
 #define ADJUST 3
-#define LOWER_MACOS 4
-#define RAISE_MACOS 5
 
 / {
     // Tri-state behavior for OS mode switching
-
-    behaviors {
-        mac_mode: mac_mode {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&tog LOWER_MACOS>, <&macro_tap>, <&tog RAISE_MACOS>;
-        };
-    };
-
     // Conditional layers
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
         adjust_layer {
-            if-layers = <LOWER RAISE>;
-            then-layer = <ADJUST>;
-        };
-
-        adjust_macos_layer {
-            if-layers = <LOWER_MACOS RAISE_MACOS>;
-            then-layer = <ADJUST>;
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
 
@@ -56,7 +40,7 @@
             bindings = <&kp RA(A)>;
         };
 
-        linux_a_tilde: linux_a_tilde {
+        linux_a_circumflex: linux_a_tilde {
             label = "linux_a_tilde";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -118,77 +102,18 @@
             #binding-cells = <0>;
             bindings = <&kp RA(COMMA)>;
         };
-
-        // macOS accent macros
-
-        macos_a_acute: macos_a_acute {
-            label = "macos_a_acute";
+        linux_a_tilde: a_tilde {
             compatible = "zmk,behavior-macro";
+            label = "A_TILDE";
             #binding-cells = <0>;
-            bindings = <&kp LA(E) &kp A>;
+            bindings = <&kp RA(LS(GRAVE)) &kp A>;
         };
 
-        macos_a_tilde: macos_a_tilde {
-            label = "macos_a_tilde";
+        linux_a_grave: linux_a_grave {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LA(N) &kp A>;
-        };
-
-        macos_e_acute: macos_e_acute {
-            label = "macos_e_acute";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LA(E) &kp E>;
-        };
-
-        macos_e_circumflex: macos_e_circumflex {
-            label = "macos_e_circumflex";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LA(I) &kp E>;
-        };
-
-        macos_i_acute: macos_i_acute {
-            label = "macos_i_acute";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LA(E) &kp I>;
-        };
-
-        macos_o_acute: macos_o_acute {
-            label = "macos_o_acute";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LA(E) &kp O>;
-        };
-
-        macos_o_circumflex: macos_o_circumflex {
-            label = "macos_o_circumflex";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LA(I) &kp O>;
-        };
-
-        macos_o_tilde: macos_o_tilde {
-            label = "macos_o_tilde";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LA(N) &kp O>;
-        };
-
-        macos_u_acute: macos_u_acute {
-            label = "macos_u_acute";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LA(E) &kp U>;
-        };
-
-        macos_c_cedilla: macos_c_cedilla {
-            label = "macos_c_cedilla";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LA(C)>;
+            bindings = <&kp RA(GRAVE) &kp A>;
+            label = "LINUX_A_GRAVE";
         };
     };
 
@@ -199,51 +124,81 @@
 
         // Linux accent combos on lower layer
 
-        combo_a_tilde {
+        combo_a_circumflex {
             timeout-ms = <50>;
-            key-positions = <26 25>; // A + S on lower layer
-            bindings = <&linux_a_tilde>;
-            layers = <1>;
+            key-positions = <25 33>; // A + S on lower layer
+            bindings = <&linux_a_circumflex>;
+            layers = <0>;
         };
 
         combo_e_circumflex {
             timeout-ms = <50>;
-            key-positions = <15 16>; // E + R on lower layer
+            key-positions = <15 33>; // E + R on lower layer
             bindings = <&linux_e_circumflex>;
-            layers = <1>;
+            layers = <0>;
         };
 
         combo_o_tilde {
             timeout-ms = <50>;
-            key-positions = <21 22>; // O + M on raise layer
+            key-positions = <21 27>; // O + M on raise layer
             bindings = <&linux_o_tilde>;
-            layers = <2>;
+            layers = <0>;
         };
 
         // macOS accent combos on macOS layers
 
-        combo_macos_a_tilde {
-            timeout-ms = <50>;
-            key-positions = <26 25>; // A + S
-            bindings = <&macos_a_tilde>;
-            layers = <4>;
-            require-prior-idle-ms = <150>;
+        combo_a_acute {
+            bindings = <&linux_a_acute>;
+            key-positions = <31 25>;
+            layers = <0>;
         };
 
-        combo_macos_e_circumflex {
-            timeout-ms = <50>;
-            key-positions = <15 16>; // E + R
-            bindings = <&macos_e_circumflex>;
-            layers = <4>;
-            require-prior-idle-ms = <150>;
+        combo_e_acute {
+            bindings = <&linux_e_acute>;
+            key-positions = <15 31>;
+            layers = <0>;
         };
 
-        combo_macos_o_tilde {
-            timeout-ms = <50>;
-            key-positions = <21 22>; // O + M
-            bindings = <&macos_o_tilde>;
-            layers = <5>;
-            require-prior-idle-ms = <150>;
+        combo_i_acute {
+            bindings = <&linux_i_acute>;
+            key-positions = <20 28>;
+            layers = <0>;
+        };
+
+        combo_u_acute {
+            bindings = <&linux_u_acute>;
+            key-positions = <19 28>;
+            layers = <0>;
+        };
+
+        combo_cedilla {
+            bindings = <&linux_c_cedilla>;
+            key-positions = <39 31>;
+            layers = <0>;
+        };
+
+        combo_a_tilde {
+            bindings = <&linux_a_tilde>;
+            key-positions = <25 32>;
+            layers = <0>;
+        };
+
+        combo_a_grave {
+            bindings = <&linux_a_grave>;
+            key-positions = <25 34>;
+            layers = <0>;
+        };
+
+        combo_o_acute {
+            bindings = <&linux_o_acute>;
+            key-positions = <21 28>;
+            layers = <0>;
+        };
+
+        combo_o_circumflex {
+            bindings = <&linux_o_circumflex>;
+            key-positions = <21 26>;
+            layers = <0>;
         };
 
         // OS mode toggle combo - letter M on adjust layer
@@ -255,11 +210,11 @@
         default_layer {
             label = "default";
             bindings = <
-&kp ESC    &kp N1  &kp N2    &kp N3    &kp N4              &kp N5                             &kp N6     &kp N7              &kp N8     &kp N9    &kp N0    &kp MINUS
-&kp TAB    &kp Q   &kp W     &kp E     &kp R               &kp T                              &kp Y      &kp U               &kp I      &kp O     &kp P     &kp EQUAL
-&kp LSHFT  &kp A   &kp S     &kp D     &kp F               &kp G                              &kp H      &kp J               &kp K      &kp L     &kp SEMI  &kp COLON
-&kp LCTRL  &kp Z   &kp X     &kp C     &kp V               &kp B      &kp C_MUTE    &kp C_PP  &kp N      &kp M               &kp COMMA  &kp DOT   &kp FSLH  &kp BSLH
-                   &kp LGUI  &kp LALT  &mo RAISE  &kp SPACE  &kp RET       &kp BSPC  &kp SPACE  &mo LOWER  &kp LBKT   &kp RBKT
+&kp ESC    &kp N1  &kp N2    &kp N3    &kp N4  &kp N5                             &kp N6     &kp N7  &kp N8     &kp N9    &kp N0    &kp MINUS
+&kp TAB    &kp Q   &kp W     &kp E     &kp R   &kp T                              &kp Y      &kp U   &kp I      &kp O     &kp P     &kp EQUAL
+&kp LSHFT  &kp A   &kp S     &kp D     &kp F   &kp G                              &kp H      &kp J   &kp K      &kp L     &kp SEMI  &kp COLON
+&kp LCTRL  &kp Z   &kp X     &kp C     &kp V   &kp B      &kp C_MUTE    &kp C_PP  &kp N      &kp M   &kp COMMA  &kp DOT   &kp FSLH  &kp BSLH
+                   &kp LGUI  &kp LALT  &mo 2   &kp SPACE  &kp RET       &kp BSPC  &kp SPACE  &mo 1   &kp LBKT   &kp RBKT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN>;
@@ -268,11 +223,11 @@
         lower_layer {
             label = "lower";
             bindings = <
-&studio_unlock  &kp F1          &kp F2  &kp F3            &kp F4  &kp F5                    &kp F6  &kp F7          &kp F8          &kp F9               &kp F10  &kp F11
-&trans          &trans          &trans  &linux_e_acute    &trans  &trans                    &trans  &linux_u_acute  &linux_i_acute  &linux_o_circumflex  &trans   &kp F12
-&trans          &linux_a_acute  &trans  &trans            &trans  &trans                    &trans  &trans          &trans          &trans               &trans   &trans
-&trans          &trans          &trans  &linux_c_cedilla  &trans  &trans  &trans    &trans  &trans  &trans          &trans          &trans               &trans   &trans
-                                &trans  &trans            &trans  &trans  &trans    &trans  &trans  &trans          &trans          &trans
+&studio_unlock  &kp F1           &kp F2  &kp F3    &kp F4      &kp F5                                  &kp F6     &kp F7    &kp F8     &kp F9                &kp F10                &kp F11
+&trans          &kp EXCLAMATION  &kp AT  &kp HASH  &kp DOLLAR  &kp PERCENT                             &kp CARET  &kt AMPS  &kp ASTRK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp F12
+&trans          &trans           &trans  &trans    &trans      &trans                                  &trans     &trans    &trans     &trans                &trans                 &trans
+&trans          &trans           &trans  &trans    &trans      &trans       &kp PRINTSCREEN    &trans  &trans     &trans    &trans     &trans                &trans                 &trans
+                                 &trans  &trans    &trans      &trans       &trans             &trans  &trans     &trans    &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -281,11 +236,11 @@
         raise_layer {
             label = "raise";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                       &trans     &trans          &trans          &trans          &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                       &trans     &linux_u_acute  &linux_i_acute  &linux_o_acute  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                       &kp LEFT   &kp DOWN        &kp UP          &kp RIGHT       &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans   &kp PG_DN  &kp PG_UP       &kp HOME        &kp END         &trans  &trans
-                &trans  &trans  &trans  &trans  &kp BSPC    &kp DEL  &trans     &trans          &trans          &trans
+&trans  &trans  &trans  &trans  &trans  &trans                       &trans     &trans     &trans    &trans     &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans                       &trans     &trans     &trans    &trans     &trans     &trans
+&trans  &trans  &trans  &trans  &trans  &trans                       &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &kp GRAVE  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans   &kp PG_DN  &kp PG_UP  &kp HOME  &kp END    &kp TILDE  &trans
+                &trans  &trans  &trans  &trans  &kp BSPC    &kp DEL  &trans     &trans     &trans    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN>;
@@ -294,38 +249,12 @@
         adjust_layer {
             label = "adjust";
             bindings = <
-&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none         &none  &none  &none  &none
-&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none         &none  &none  &none  &none
-&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &none         &none  &none  &none  &none
-&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &mac_mode     &none  &none  &none  &none
-                                    &none            &none            &none            &none            &none              &none  &none  &none         &none  &none
+&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none   &none  &none  &none  &none
+&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none   &none  &none  &none  &none
+&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &none   &none  &none  &none  &none
+&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &trans  &none  &none  &none  &none
+                                    &none            &none            &none            &none            &none              &none  &none  &none   &none  &none
             >;
-        };
-
-        lower_macos_layer {
-            label = "lower_mac";
-            bindings = <
-&studio_unlock  &kp F1          &kp F2  &kp F3            &kp F4  &kp F5                    &kp F6  &kp F7          &kp F8          &kp F9               &kp F10  &kp F11
-&trans          &trans          &trans  &macos_e_acute    &trans  &trans                    &trans  &macos_u_acute  &macos_i_acute  &macos_o_circumflex  &trans   &kp F12
-&trans          &macos_a_acute  &trans  &trans            &trans  &trans                    &trans  &trans          &trans          &trans               &trans   &trans
-&trans          &trans          &trans  &macos_c_cedilla  &trans  &trans  &trans    &trans  &trans  &trans          &trans          &trans               &trans   &trans
-                                &trans  &trans            &trans  &trans  &trans    &trans  &trans  &trans          &trans          &trans
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        };
-
-        raise_macos_layer {
-            label = "raise_mac";
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                       &trans     &trans          &trans          &trans          &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                       &trans     &macos_u_acute  &macos_i_acute  &macos_o_acute  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                       &kp LEFT   &kp DOWN        &kp UP          &kp RIGHT       &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans   &kp PG_DN  &kp PG_UP       &kp HOME        &kp END         &trans  &trans
-                &trans  &trans  &trans  &trans  &kp BSPC    &kp DEL  &trans     &trans          &trans          &trans
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN>;
         };
     };
 };
