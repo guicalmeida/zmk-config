@@ -39,7 +39,7 @@
             #binding-cells = <0>;
             bindings = <&mo LOWER>, <&mo LOWER_MACOS>;
 
-            mods = <>;
+
         };
 
         raise_conditional: raise_conditional {
@@ -48,7 +48,7 @@
             #binding-cells = <0>;
             bindings = <&mo RAISE>, <&mo RAISE_MACOS>;
 
-            mods = <>;
+
         };
     };
 
