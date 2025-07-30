@@ -202,9 +202,22 @@
             layers = <0>;
         };
 
-        enter {
+        enter_right {
+            bindings = <&kp RET>;
+            key-positions = <55 56>;
+            layers = <0 2 1>;
+        };
+
+        enter_left {
+            bindings = <&kp RET>;
+            key-positions = <53 54>;
+            layers = <0 1 2>;
+        };
+
+        enter_both {
             bindings = <&kp RET>;
             key-positions = <54 55>;
+            layers = <0 1 2>;
         };
 
         // OS mode toggle combo - letter M on adjust layer
@@ -229,11 +242,11 @@
         lower_layer {
             label = "lower";
             bindings = <
-&studio_unlock  &kp F1  &kp F2   &kp F3    &kp F4      &kp F5                                   &kp F6     &kp F7  &kp F8  &kp F9                &kp F10                &kp F11
-&trans          &trans  &trans   &trans    &trans      &trans                                   &trans     &kp N7  &kp N8  &kp N9                &trans                 &kp F12
-&trans          &trans  &trans   &trans    &trans      &trans                                   &trans     &kp N4  &kp N5  &kp N6                &trans                 &trans
-&trans          &trans  &trans   &trans    &trans      &trans       &kp PRINTSCREEN    &trans   &trans     &kp N1  &kp N2  &kp N3                &kp N0                 &trans
-                        &trans   &trans    &trans      &trans       &kp BSPC           &kp DEL  &trans     &trans  &trans  &trans
+&studio_unlock  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                              &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
+&trans          &trans  &trans  &trans  &trans  &trans                              &trans  &kp N7  &kp N8  &kp N9  &trans   &kp F12
+&trans          &trans  &trans  &trans  &trans  &trans                              &trans  &kp N4  &kp N5  &kp N6  &trans   &trans
+&trans          &trans  &trans  &trans  &trans  &trans  &kp PRINTSCREEN    &trans   &trans  &kp N1  &kp N2  &kp N3  &kp N0   &trans
+                        &trans  &trans  &trans  &trans  &kp BSPC           &kp DEL  &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -242,11 +255,11 @@
         raise_layer {
             label = "raise";
             bindings = <
-&trans  &trans           &trans       &trans    &trans      &trans                              &trans     &trans         &trans        &trans                &trans                 &trans
-&trans  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT                         &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
-&trans  &trans           &trans       &trans    &trans      &trans                              &kp LEFT   &kp DOWN       &kp UP        &kp RIGHT             &kp GRAVE              &trans
-&trans  &trans           &trans       &trans    &trans      &trans       &trans        &trans   &kp PG_DN  &kp PG_UP      &kp HOME      &kp END               &kp TILDE              &trans
-                         &trans       &trans    &trans      &trans       &kp BSPC      &kp DEL  &trans     &trans         &trans        &trans
+&trans  &trans           &trans       &trans    &trans      &trans                            &trans     &trans         &trans        &trans                &trans                 &trans
+&trans  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT                       &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
+&trans  &trans           &trans       &trans    &trans      &trans                            &kp LEFT   &kp DOWN       &kp UP        &kp RIGHT             &kp GRAVE              &trans
+&trans  &trans           &trans       &trans    &trans      &trans       &trans      &trans   &kp PG_DN  &kp PG_UP      &kp HOME      &kp END               &kp TILDE              &trans
+                         &trans       &trans    &trans      &trans       &kp BSPC    &kp DEL  &trans     &trans         &trans        &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN>;
