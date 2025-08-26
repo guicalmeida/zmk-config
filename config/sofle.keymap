@@ -126,21 +126,21 @@
         // Linux accent combos on lower layer
 
         combo_a_circumflex {
-            timeout-ms = <75>;
+            timeout-ms = <50>;
             key-positions = <25 33>; // A + S on lower layer
             bindings = <&linux_a_circumflex>;
             layers = <0>;
         };
 
         combo_e_circumflex {
-            timeout-ms = <75>;
+            timeout-ms = <50>;
             key-positions = <15 33>; // E + R on lower layer
             bindings = <&linux_e_circumflex>;
             layers = <0>;
         };
 
         combo_o_tilde {
-            timeout-ms = <75>;
+            timeout-ms = <50>;
             key-positions = <21 27>; // O + M on raise layer
             bindings = <&linux_o_tilde>;
             layers = <0>;
@@ -152,63 +152,63 @@
             bindings = <&linux_a_acute>;
             key-positions = <31 25>;
             layers = <0>;
-            timeout-ms = <75>;
+            timeout-ms = <50>;
         };
 
         combo_e_acute {
             bindings = <&linux_e_acute>;
             key-positions = <15 31>;
             layers = <0>;
-            timeout-ms = <75>;
+            timeout-ms = <50>;
         };
 
         combo_i_acute {
             bindings = <&linux_i_acute>;
             key-positions = <20 28>;
             layers = <0>;
-            timeout-ms = <75>;
+            timeout-ms = <50>;
         };
 
         combo_u_acute {
             bindings = <&linux_u_acute>;
             key-positions = <19 28>;
             layers = <0>;
-            timeout-ms = <75>;
+            timeout-ms = <50>;
         };
 
         combo_cedilla {
             bindings = <&linux_c_cedilla>;
             key-positions = <39 31>;
             layers = <0>;
-            timeout-ms = <75>;
+            timeout-ms = <50>;
         };
 
         combo_a_tilde {
             bindings = <&linux_a_tilde>;
             key-positions = <25 32>;
             layers = <0>;
-            timeout-ms = <75>;
+            timeout-ms = <50>;
         };
 
         combo_a_grave {
             bindings = <&linux_a_grave>;
             key-positions = <25 34>;
             layers = <0>;
-            timeout-ms = <75>;
+            timeout-ms = <50>;
         };
 
         combo_o_acute {
             bindings = <&linux_o_acute>;
             key-positions = <21 28>;
             layers = <0>;
-            timeout-ms = <75>;
+            timeout-ms = <50>;
         };
 
         combo_o_circumflex {
             bindings = <&linux_o_circumflex>;
             key-positions = <21 26>;
             layers = <0>;
-            timeout-ms = <75>;
+            timeout-ms = <50>;
         };
 
         enter_right {
@@ -248,7 +248,7 @@
                    &kp LGUI  &kp LALT  &mo 2   &kp SPACE  &kp DELETE    &kp BSPC  &kp SPACE  &mo 1   &kp LBKT   &kp RBKT
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN>;
+            sensor-bindings = <&inc_dec_kp RIGHT LEFT>, <&inc_dec_kp UP DOWN>;
         };
 
         lower_layer {
@@ -267,11 +267,11 @@
         raise_layer {
             label = "raise";
             bindings = <
-&trans  &trans           &trans       &trans    &trans      &trans                            &trans     &trans         &trans        &trans                &trans                 &trans
-&trans  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT                       &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
-&trans  &trans           &trans       &trans    &trans      &trans                            &kp LEFT   &kp DOWN       &kp UP        &kp RIGHT             &kp GRAVE              &trans
-&trans  &trans           &trans       &trans    &trans      &trans       &kp PRINTSCREEN      &trans   &kp PG_DN  &kp PG_UP      &kp HOME      &kp END               &kp TILDE              &trans
-                         &trans       &trans    &trans      &trans       &kp BSPC    &kp DEL  &trans     &trans         &trans        &trans
+&trans  &trans           &trans       &trans    &trans      &trans                                   &trans     &trans         &trans        &trans                &trans                 &trans
+&trans  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT                              &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
+&trans  &trans           &trans       &trans    &trans      &trans                                   &kp LEFT   &kp DOWN       &kp UP        &kp RIGHT             &kp GRAVE              &trans
+&trans  &trans           &trans       &trans    &trans      &trans       &kp PRINTSCREEN    &trans   &kp PG_DN  &kp PG_UP      &kp HOME      &kp END               &kp TILDE              &trans
+                         &trans       &trans    &trans      &trans       &kp BSPC           &kp DEL  &trans     &trans         &trans        &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN>;
