@@ -18,6 +18,7 @@
 
 / {
     // Conditional layers
+
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
@@ -28,18 +29,25 @@
     };
 
     // Macros for Portuguese accents
+
     macros {
         // CORRECTED Hyper key - properly holds all modifiers
+
         hyper: hyper {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>
-                     , <&macro_pause_for_release>
-                     , <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>;
+            bindings =
+                <&macro_press>,
+                <&kp LSHFT &kp LCTRL &kp LALT &kp LGUI>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&kp LSHFT &kp LCTRL &kp LALT &kp LGUI>;
+
             label = "HYPER";
         };
 
         // Acute accents (á, é, í, ó, ú)
+
         a_acute: a_acute {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -76,6 +84,7 @@
         };
 
         // Circumflex accents (â, ê, ô)
+
         a_circum: a_circum {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -98,6 +107,7 @@
         };
 
         // Tilde accents (ã, õ)
+
         a_tilde: a_tilde {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -113,6 +123,7 @@
         };
 
         // Cedilla (ç)
+
         c_cedilla: c_cedilla {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -121,6 +132,7 @@
         };
 
         // Grave accent (à) - rare in Portuguese
+
         a_grave: a_grave {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -130,8 +142,8 @@
     };
 
     // NO behaviors section needed - we'll use simple macros that respond to shift naturally
-
     // Combos
+
     combos {
         compatible = "zmk,combos";
 
@@ -205,11 +217,11 @@
         accent_layer {
             label = "accent";
             bindings = <
-&trans  &a_circum  &trans     &trans      &trans  &trans                    &trans  &trans    &trans    &o_circum  &trans  &trans
-&trans  &a_tilde   &trans     &e_acute    &trans  &trans                    &trans  &u_acute  &i_acute  &o_acute   &trans  &trans
-&trans  &a_acute   &trans     &e_circum   &trans  &trans                    &trans  &trans    &trans    &o_tilde   &trans  &trans
-&trans  &a_grave   &trans     &c_cedilla  &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans     &trans  &trans
-                   &trans     &trans      &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans
+&trans  &a_circum  &trans  &trans      &trans  &trans                            &trans  &trans    &trans    &o_circum  &trans  &trans
+&trans  &a_tilde   &trans  &e_acute    &trans  &trans                            &trans  &u_acute  &i_acute  &o_acute   &trans  &trans
+&trans  &a_acute   &trans  &e_circum   &trans  &trans                            &trans  &trans    &trans    &o_tilde   &trans  &trans
+&trans  &a_grave   &trans  &c_cedilla  &trans  &trans  &trans    &trans          &trans  &trans    &trans    &trans     &trans  &trans
+                   &trans  &trans      &trans  &trans  &trans    &kp LEFT_SHIFT  &trans  &trans    &trans    &trans
             >;
         };
     };
