@@ -24,7 +24,7 @@
 
         adjust_layer {
             if-layers = <1 2>;
-            then-layer = <3>;
+            then-layer = <4>;
         };
     };
 
@@ -172,7 +172,7 @@
 &kp TAB    &kp Q   &kp W     &kp E     &kp R   &kp T                                &kp Y      &kp U             &kp I              &kp O      &kp P             &kp MINUS
 &kp LSHFT  &kp A   &kp S     &kp D     &kp F   &kp G                                &kp H      &kp J             &kp K              &kp L      &kp SINGLE_QUOTE  &kp SEMI
 &kp LCTRL  &kp Z   &kp X     &kp C     &kp V   &kp B   &kp PRINTSCREEN    &tog 2    &kp N      &kp M             &kp COMMA          &kp DOT    &kp FSLH          &kp BSLH
-                   &kp LGUI  &kp LALT  &hyper  &mo 4   &mo 1              &kp BSPC  &kp SPACE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp GRAVE
+                   &kp LGUI  &kp LALT  &hyper  &mo 3   &mo 1              &kp BSPC  &kp SPACE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp GRAVE
             >;
 
             sensor-bindings = <&inc_dec_kp RIGHT LEFT>, <&inc_dec_kp UP DOWN>;
@@ -188,7 +188,9 @@
                   &trans    &trans     &trans     &trans    &trans    &trans  &trans    &trans         &trans     &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp UP DOWN>;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
 
         Num {
@@ -203,17 +205,6 @@
             label = "num";
         };
 
-        adjust_layer {
-            label = "adjust";
-            bindings = <
-&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none   &none  &none  &none  &none
-&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none   &none  &none  &none  &none
-&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &none   &none  &none  &none  &none
-&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &trans  &none  &none  &none  &none
-                                    &none            &none            &none            &none            &none              &none  &none  &none   &none  &none
-            >;
-        };
-
         accent_layer {
             label = "accent";
             bindings = <
@@ -222,6 +213,17 @@
 &trans  &a_acute   &trans  &e_circum   &trans  &trans                            &trans  &trans    &trans    &o_tilde   &trans  &trans
 &trans  &a_grave   &trans  &c_cedilla  &trans  &trans  &trans    &trans          &trans  &trans    &trans    &trans     &trans  &trans
                    &trans  &trans      &trans  &trans  &trans    &kp LEFT_SHIFT  &trans  &trans    &trans    &trans
+            >;
+        };
+
+        adjust_layer {
+            label = "adjust";
+            bindings = <
+&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none   &none  &none  &none  &none
+&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none   &none  &none  &none  &none
+&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &none   &none  &none  &none  &none
+&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &trans  &none  &none  &none  &none
+                                    &none            &none            &none            &none            &none              &none  &none  &none   &none  &none
             >;
         };
     };
