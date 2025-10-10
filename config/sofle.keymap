@@ -205,11 +205,11 @@
         accent_layer {
             label = "accent";
             bindings = <
-&trans  &mm_a_circum  &trans  &trans         &trans  &trans                            &trans  &trans       &trans       &mm_o_circum  &trans  &trans
-&trans  &mm_a_tilde   &trans  &mm_e_acute    &trans  &trans                            &trans  &mm_u_acute  &mm_i_acute  &mm_o_acute   &trans  &trans
-&trans  &mm_a_acute   &trans  &mm_e_circum   &trans  &trans                            &trans  &trans       &trans       &mm_o_tilde   &trans  &trans
-&trans  &mm_a_grave   &trans  &mm_c_cedilla  &trans  &trans  &trans    &trans          &trans  &trans       &trans       &trans        &trans  &trans
-                      &trans  &trans         &trans  &trans  &trans    &kp LEFT_SHIFT  &trans  &trans       &trans       &trans
+&trans  &a_circum  &trans     &trans      &trans  &trans                    &trans  &trans    &trans    &o_circum  &trans  &trans
+&trans  &a_tilde   &trans     &e_acute    &trans  &trans                    &trans  &u_acute  &i_acute  &o_acute   &trans  &trans
+&trans  &a_acute   &trans     &e_circum   &trans  &trans                    &trans  &trans    &trans    &o_tilde   &trans  &trans
+&trans  &a_grave   &trans     &c_cedilla  &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans     &trans  &trans
+                   &trans     &trans      &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans
             >;
         };
     };
