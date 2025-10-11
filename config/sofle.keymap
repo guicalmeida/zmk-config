@@ -16,7 +16,7 @@
 // Configure Unicode behavior for Windows (with WinCompose)
 // Available modes: 0=Linux, 1=macOS, 2=Windows, 3=WinCompose
 &uc {
-    default-mode = <3>;  // 3 = WinCompose mode for Windows
+    default-mode = <0>;  // 0 = Linux mode
 };
 
 #define BASE 0
