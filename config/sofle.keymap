@@ -10,6 +10,9 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/rgb.h>
 
+// Import Unicode behavior
+#include <zmk-unicode/zmk-unicode.h>
+
 #define BASE 0
 #define LOWER 1
 #define RAISE 2
@@ -28,11 +31,9 @@
         };
     };
 
-    // Macros for Portuguese accents
-
+    // Macros for Portuguese accents using Unicode
     macros {
-        // CORRECTED Hyper key - properly holds all modifiers
-
+        // Hyper key
         hyper: hyper {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -46,104 +47,271 @@
             label = "HYPER";
         };
 
-        // Acute accents (á, é, í, ó, ú)
-
+        // Lowercase acute accents
         a_acute: a_acute {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RA(A)>;
+            bindings = <&uc 0x00E1>; // á
             label = "A_ACUTE";
         };
 
         e_acute: e_acute {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RA(E)>;
+            bindings = <&uc 0x00E9>; // é
             label = "E_ACUTE";
         };
 
         i_acute: i_acute {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RA(I)>;
+            bindings = <&uc 0x00ED>; // í
             label = "I_ACUTE";
         };
 
         o_acute: o_acute {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RA(O)>;
+            bindings = <&uc 0x00F3>; // ó
             label = "O_ACUTE";
         };
 
         u_acute: u_acute {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RA(U)>;
+            bindings = <&uc 0x00FA>; // ú
             label = "U_ACUTE";
         };
 
-        // Circumflex accents (â, ê, ô)
+        // Uppercase acute accents
+        a_acute_up: a_acute_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&uc 0x00C1>; // Á
+            label = "A_ACUTE_UP";
+        };
 
+        e_acute_up: e_acute_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&uc 0x00C9>; // É
+            label = "E_ACUTE_UP";
+        };
+
+        i_acute_up: i_acute_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&uc 0x00CD>; // Í
+            label = "I_ACUTE_UP";
+        };
+
+        o_acute_up: o_acute_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&uc 0x00D3>; // Ó
+            label = "O_ACUTE_UP";
+        };
+
+        u_acute_up: u_acute_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&uc 0x00DA>; // Ú
+            label = "U_ACUTE_UP";
+        };
+
+        // Lowercase circumflex accents
         a_circum: a_circum {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RA(N6) &kp A>;
+            bindings = <&uc 0x00E2>; // â
             label = "A_CIRCUM";
         };
 
         e_circum: e_circum {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RA(N6) &kp E>;
+            bindings = <&uc 0x00EA>; // ê
             label = "E_CIRCUM";
         };
 
         o_circum: o_circum {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RA(N6) &kp O>;
+            bindings = <&uc 0x00F4>; // ô
             label = "O_CIRCUM";
         };
 
-        // Tilde accents (ã, õ)
+        // Uppercase circumflex accents
+        a_circum_up: a_circum_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&uc 0x00C2>; // Â
+            label = "A_CIRCUM_UP";
+        };
 
+        e_circum_up: e_circum_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&uc 0x00CA>; // Ê
+            label = "E_CIRCUM_UP";
+        };
+
+        o_circum_up: o_circum_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&uc 0x00D4>; // Ô
+            label = "O_CIRCUM_UP";
+        };
+
+        // Lowercase tilde accents
         a_tilde: a_tilde {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RA(LS(GRAVE)) &kp A>;
+            bindings = <&uc 0x00E3>; // ã
             label = "A_TILDE";
         };
 
         o_tilde: o_tilde {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RA(LS(GRAVE)) &kp O>;
+            bindings = <&uc 0x00F5>; // õ
             label = "O_TILDE";
         };
 
-        // Cedilla (ç)
+        // Uppercase tilde accents
+        a_tilde_up: a_tilde_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&uc 0x00C3>; // Ã
+            label = "A_TILDE_UP";
+        };
 
+        o_tilde_up: o_tilde_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&uc 0x00D5>; // Õ
+            label = "O_TILDE_UP";
+        };
+
+        // Cedilla
         c_cedilla: c_cedilla {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RA(COMMA)>;
+            bindings = <&uc 0x00E7>; // ç
             label = "C_CEDILLA";
         };
 
-        // Grave accent (à) - rare in Portuguese
+        c_cedilla_up: c_cedilla_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&uc 0x00C7>; // Ç
+            label = "C_CEDILLA_UP";
+        };
 
+        // Grave accent
         a_grave: a_grave {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RA(GRAVE) &kp A>;
+            bindings = <&uc 0x00E0>; // à
             label = "A_GRAVE";
+        };
+
+        a_grave_up: a_grave_up {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&uc 0x00C0>; // À
+            label = "A_GRAVE_UP";
         };
     };
 
-    // NO behaviors section needed - we'll use simple macros that respond to shift naturally
-    // Combos
+    // Behaviors for mod-morph (shift detection)
+    behaviors {
+        a_acut_morph: a_acut_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&a_acute>, <&a_acute_up>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
 
+        e_acut_morph: e_acut_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&e_acute>, <&e_acute_up>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        i_acut_morph: i_acut_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&i_acute>, <&i_acute_up>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        o_acut_morph: o_acut_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&o_acute>, <&o_acute_up>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        u_acut_morph: u_acut_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&u_acute>, <&u_acute_up>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        a_circ_morph: a_circ_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&a_circum>, <&a_circum_up>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        e_circ_morph: e_circ_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&e_circum>, <&e_circum_up>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        o_circ_morph: o_circ_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&o_circum>, <&o_circum_up>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        a_tild_morph: a_tild_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&a_tilde>, <&a_tilde_up>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        o_tild_morph: o_tild_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&o_tilde>, <&o_tilde_up>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        c_cedi_morph: c_cedi_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&c_cedilla>, <&c_cedilla_up>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        a_grav_morph: a_grav_morph {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&a_grave>, <&a_grave_up>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+    };
+
+    // Combos
     combos {
         compatible = "zmk,combos";
 
@@ -208,11 +376,11 @@
         accent_layer {
             label = "accent";
             bindings = <
-&trans  &a_circum  &trans  &trans      &trans  &trans                            &trans  &trans    &trans    &o_circum  &trans  &trans
-&trans  &a_tilde   &trans  &e_acute    &trans  &trans                            &trans  &u_acute  &i_acute  &o_acute   &trans  &trans
-&trans  &a_acute   &trans  &e_circum   &trans  &trans                            &trans  &trans    &trans    &o_tilde   &trans  &trans
-&trans  &a_grave   &trans  &c_cedilla  &trans  &trans  &trans    &trans          &trans  &trans    &trans    &trans     &trans  &trans
-                   &trans  &trans      &trans  &trans  &trans    &kp LEFT_SHIFT  &trans  &trans    &trans    &trans
+&trans  &a_circ_morph  &trans  &trans        &trans  &trans                            &trans  &trans        &trans        &o_circ_morph  &trans  &trans
+&trans  &a_tild_morph  &trans  &e_acut_morph &trans  &trans                            &trans  &u_acut_morph &i_acut_morph &o_acut_morph  &trans  &trans
+&trans  &a_acut_morph  &trans  &e_circ_morph &trans  &trans                            &trans  &trans        &trans        &o_tild_morph  &trans  &trans
+&trans  &a_grav_morph  &trans  &c_cedi_morph &trans  &trans  &trans    &trans          &trans  &trans        &trans        &trans         &trans  &trans
+                       &trans  &trans        &trans  &trans  &trans    &kp LEFT_SHIFT  &trans  &trans        &trans        &trans
             >;
         };
 
