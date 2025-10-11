@@ -16,7 +16,7 @@
 // Configure Unicode behavior for Windows (with WinCompose)
 // Available modes: 0=Linux, 1=macOS, 2=Windows, 3=WinCompose
 &uc {
-    default-mode = <0>;  // 0 = linux
+    default-mode = <3>;  // 3 = WinCompose mode for Windows
 };
 
 #define BASE 0
@@ -55,11 +55,11 @@
 
     // Behaviors for mod-morph (shift detection) with Unicode
     behaviors {
-        // á/Á
+        // á/Á - Note: &uc needs 2 parameters, use 0 for "no shift variant"
         a_acut_morph: a_acut_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&uc 0x00E1>, <&uc 0x00C1>;
+            bindings = <&uc 0x00E1 0>, <&uc 0x00C1 0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -67,7 +67,7 @@
         e_acut_morph: e_acut_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&uc 0x00E9>, <&uc 0x00C9>;
+            bindings = <&uc 0x00E9 0>, <&uc 0x00C9 0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -75,7 +75,7 @@
         i_acut_morph: i_acut_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&uc 0x00ED>, <&uc 0x00CD>;
+            bindings = <&uc 0x00ED 0>, <&uc 0x00CD 0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -83,7 +83,7 @@
         o_acut_morph: o_acut_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&uc 0x00F3>, <&uc 0x00D3>;
+            bindings = <&uc 0x00F3 0>, <&uc 0x00D3 0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -91,7 +91,7 @@
         u_acut_morph: u_acut_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&uc 0x00FA>, <&uc 0x00DA>;
+            bindings = <&uc 0x00FA 0>, <&uc 0x00DA 0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -99,7 +99,7 @@
         a_circ_morph: a_circ_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&uc 0x00E2>, <&uc 0x00C2>;
+            bindings = <&uc 0x00E2 0>, <&uc 0x00C2 0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -107,7 +107,7 @@
         e_circ_morph: e_circ_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&uc 0x00EA>, <&uc 0x00CA>;
+            bindings = <&uc 0x00EA 0>, <&uc 0x00CA 0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -115,7 +115,7 @@
         o_circ_morph: o_circ_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&uc 0x00F4>, <&uc 0x00D4>;
+            bindings = <&uc 0x00F4 0>, <&uc 0x00D4 0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -123,7 +123,7 @@
         a_tild_morph: a_tild_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&uc 0x00E3>, <&uc 0x00C3>;
+            bindings = <&uc 0x00E3 0>, <&uc 0x00C3 0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -131,7 +131,7 @@
         o_tild_morph: o_tild_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&uc 0x00F5>, <&uc 0x00D5>;
+            bindings = <&uc 0x00F5 0>, <&uc 0x00D5 0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -139,7 +139,7 @@
         c_cedi_morph: c_cedi_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&uc 0x00E7>, <&uc 0x00C7>;
+            bindings = <&uc 0x00E7 0>, <&uc 0x00C7 0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -147,7 +147,7 @@
         a_grav_morph: a_grav_morph {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&uc 0x00E0>, <&uc 0x00C0>;
+            bindings = <&uc 0x00E0 0>, <&uc 0x00C0 0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
