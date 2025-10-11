@@ -13,9 +13,10 @@
 // Import Unicode behavior
 #include <behaviors/unicode.dtsi>
 
-// Configure Unicode behavior for Windows (with WinCompose or built-in)
+// Configure Unicode behavior for Windows (with WinCompose)
+// Available modes: 0=Linux, 1=macOS, 2=Windows, 3=WinCompose
 &uc {
-    default-mode = <UC_MODE_WIN>;  // Use Windows Unicode input
+    default-mode = <0>;  // 0 = linux
 };
 
 #define BASE 0
