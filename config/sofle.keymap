@@ -13,10 +13,10 @@
 // Import Unicode behavior
 #include <behaviors/unicode.dtsi>
 
-// Configure Unicode behavior for Windows (with WinCompose)
-// Available modes: 0=Linux, 1=macOS, 2=Windows, 3=WinCompose
+// Configure Unicode behavior for Linux
 &uc {
-    default-mode = <0>;  // 0 = Linux mode
+    default-mode = <UC_MODE_LINUX>;  // Use Linux IBus mode
+    linux-key = <LC(LS(U))>;         // Ctrl+Shift+U (default, but explicit)
 };
 
 #define BASE 0
@@ -50,105 +50,6 @@
                 <&kp LSHFT &kp LCTRL &kp LALT &kp LGUI>;
 
             label = "HYPER";
-        };
-    };
-
-    // Behaviors for mod-morph (shift detection) with Unicode
-    behaviors {
-        // á/Á - Note: &uc needs 2 parameters, use 0 for "no shift variant"
-        a_acut_morph: a_acut_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&uc 0x00E1 0>, <&uc 0x00C1 0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // é/É
-        e_acut_morph: e_acut_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&uc 0x00E9 0>, <&uc 0x00C9 0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // í/Í
-        i_acut_morph: i_acut_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&uc 0x00ED 0>, <&uc 0x00CD 0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // ó/Ó
-        o_acut_morph: o_acut_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&uc 0x00F3 0>, <&uc 0x00D3 0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // ú/Ú
-        u_acut_morph: u_acut_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&uc 0x00FA 0>, <&uc 0x00DA 0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // â/Â
-        a_circ_morph: a_circ_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&uc 0x00E2 0>, <&uc 0x00C2 0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // ê/Ê
-        e_circ_morph: e_circ_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&uc 0x00EA 0>, <&uc 0x00CA 0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // ô/Ô
-        o_circ_morph: o_circ_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&uc 0x00F4 0>, <&uc 0x00D4 0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // ã/Ã
-        a_tild_morph: a_tild_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&uc 0x00E3 0>, <&uc 0x00C3 0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // õ/Õ
-        o_tild_morph: o_tild_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&uc 0x00F5 0>, <&uc 0x00D5 0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // ç/Ç
-        c_cedi_morph: c_cedi_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&uc 0x00E7 0>, <&uc 0x00C7 0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // à/À
-        a_grav_morph: a_grav_morph {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&uc 0x00E0 0>, <&uc 0x00C0 0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
 
@@ -217,11 +118,11 @@
         accent_layer {
             label = "accent";
             bindings = <
-&trans  &a_circ_morph  &trans  &trans         &trans  &trans                            &trans  &trans         &trans         &o_circ_morph  &trans  &trans
-&trans  &a_tild_morph  &trans  &e_acut_morph  &trans  &trans                            &trans  &u_acut_morph  &i_acut_morph  &o_acut_morph  &trans  &trans
-&trans  &a_acut_morph  &trans  &e_circ_morph  &trans  &trans                            &trans  &trans         &trans         &o_tild_morph  &trans  &trans
-&trans  &a_grav_morph  &trans  &c_cedi_morph  &trans  &trans  &trans    &trans          &trans  &trans         &trans         &trans         &trans  &trans
-                       &trans  &trans         &trans  &trans  &trans    &kp LEFT_SHIFT  &trans  &trans         &trans         &trans
+&trans  &uc 0xE2 0xC2  &trans  &trans          &trans  &trans                            &trans  &trans          &trans          &uc 0xF4 0xD4  &trans  &trans
+&trans  &uc 0xE3 0xC3  &trans  &uc 0xE9 0xC9   &trans  &trans                            &trans  &uc 0xFA 0xDA   &uc 0xED 0xCD   &uc 0xF3 0xD3  &trans  &trans
+&trans  &uc 0xE1 0xC1  &trans  &uc 0xEA 0xCA   &trans  &trans                            &trans  &trans          &trans          &uc 0xF5 0xD5  &trans  &trans
+&trans  &uc 0xE0 0xC0  &trans  &uc 0xE7 0xC7   &trans  &trans  &trans    &trans          &trans  &trans          &trans          &trans         &trans  &trans
+                       &trans  &trans          &trans  &trans  &trans    &kp LEFT_SHIFT  &trans  &trans          &trans          &trans
             >;
         };
 
