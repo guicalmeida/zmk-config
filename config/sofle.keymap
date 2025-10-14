@@ -95,11 +95,11 @@
         Nav {
             label = "nav";
             bindings = <
-&trans  &trans    &trans    &trans     &trans     &trans                       &trans    &trans         &trans     &trans     &trans  &trans
-&trans  &trans    &kp UP    &trans     &kp PG_UP  &kp HOME                     &trans    &trans         &trans     &trans     &trans  &trans
-&trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp PG_DN  &kp END                      &kp LEFT  &kp DOWN       &kp UP     &kp RIGHT  &trans  &trans
-&trans  &trans    &trans    &trans     &trans     &trans     &trans    &trans  &kp HOME  &kp PAGE_DOWN  &kp PG_UP  &kp END    &trans  &trans
-                  &trans    &trans     &trans     &kp SPACE  &trans    &trans  &trans    &trans         &trans     &trans
+&trans  &trans    &trans    &trans     &trans     &trans                        &trans    &trans         &trans     &trans     &trans  &trans
+&trans  &trans    &kp UP    &trans     &kp PG_UP  &kp HOME                      &trans    &trans         &trans     &trans     &trans  &trans
+&trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp PG_DN  &kp END                       &kp LEFT  &kp DOWN       &kp UP     &kp RIGHT  &trans  &trans
+&trans  &trans    &trans    &trans     &trans     &trans     &trans    &trans   &kp HOME  &kp PAGE_DOWN  &kp PG_UP  &kp END    &trans  &trans
+                  &trans    &trans     &trans     &kp SPACE  &trans    &kp DEL  &trans    &trans         &trans     &trans
             >;
 
             sensor-bindings =
@@ -109,11 +109,11 @@
 
         Num {
             bindings = <
-&kp F1                 &kp F2     &kp F3  &kp F4  &kp F5  &kp F6                                   &kp F7           &kp F8  &kp F9                &kp F10                &kp F11    &kp F12
-&kp LEFT_PARENTHESIS   &kp EQUAL  &kp N7  &kp N8  &kp N9  &kp ASTERISK                             &kp ASTERISK     &kp N7  &kp N8                &kp N9                 &kp EQUAL  &kp PERCENT
-&kp RIGHT_PARENTHESIS  &kp PLUS   &kp N4  &kp N5  &kp N6  &kp SLASH                                &kp FSLH         &kp N4  &kp N5                &kp N6                 &kp PLUS   &kp DOLLAR
-&trans                 &kp MINUS  &kp N1  &kp N2  &kp N3  &trans        &trans           &trans    &kp EXCLAMATION  &kp N1  &kp N2                &kp N3                 &kp MINUS  &trans
-                                  &trans  &trans  &kp N0  &kp ENTER     &kp BACKSPACE    &kp BSPC  &kp RET          &kp N0  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+&kp F1                 &kp F2     &kp F3  &kp F4  &kp F5  &kp F6                                   &kp F7        &kp F8  &kp F9                &kp F10                &kp F11    &kp F12
+&kp LEFT_PARENTHESIS   &kp EQUAL  &kp N7  &kp N8  &kp N9  &kp ASTERISK                             &kp ASTERISK  &kp N7  &kp N8                &kp N9                 &kp EQUAL  &kp PERCENT
+&kp RIGHT_PARENTHESIS  &kp PLUS   &kp N4  &kp N5  &kp N6  &kp SLASH                                &kp FSLH      &kp N4  &kp N5                &kp N6                 &kp PLUS   &kp DOLLAR
+&trans                 &kp MINUS  &kp N1  &kp N2  &kp N3  &kp COMMA     &trans           &trans    &kp DOT       &kp N1  &kp N2                &kp N3                 &kp MINUS  &kp EXCL
+                                  &trans  &trans  &kp N0  &kp ENTER     &kp BACKSPACE    &kp BSPC  &kp SPACE     &kp N0  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
             >;
 
             label = "num";
