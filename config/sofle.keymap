@@ -6,7 +6,7 @@
 // Import Unicode behavior
 
 #include <behaviors/unicode.dtsi>
-#include <behaviors.dtsi>
+#include <zmk-unicode/keys-extra.h>  // All glyphs except CJK
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
@@ -19,6 +19,10 @@
     linux-key = <LC(LS(U))>;         // Ctrl+Shift+U (default, but explicit)
 };
 
+
+#define UC_PT_O_TILDE   0xf5 0xd5  // õ/Õ
+#define UC_PT_I_ACUTE   0xed 0xcd  // í/Í
+#define UC_PT_U_ACUTE   0xfa 0xda  // ú/Ú
 #define BASE 0
 #define LOWER 1
 #define RAISE 2
@@ -123,15 +127,14 @@
 
             label = "num";
         };
-
         accent_layer {
             label = "accent";
             bindings = <
-&trans  &uc 0xE2 0xC2  &trans  &trans         &trans  &trans                            &trans  &trans         &trans         &uc 0xF4 0xD4  &trans  &trans
-&trans  &uc 0xE3 0xC3  &trans  &uc 0xE9 0xC9  &trans  &trans                            &trans  &uc 0xFA 0xDA  &uc 0xED 0xCD  &uc 0xF3 0xD3  &trans  &trans
-&trans  &uc 0xE1 0xC1  &trans  &uc 0xEA 0xCA  &trans  &trans                            &trans  &trans         &trans         &uc 0xF5 0xD5  &trans  &trans
-&trans  &uc 0xE0 0xC0  &trans  &uc 0xE7 0xC7  &trans  &trans  &trans    &trans          &trans  &trans         &trans         &trans         &trans  &trans
-                       &trans  &trans         &trans  &trans  &trans    &kp LEFT_SHIFT  &trans  &trans         &trans         &trans
+        &trans  &uc UC_PT_A_CIRCUMFLEX  &trans  &trans         &trans  &trans                            &trans  &trans         &trans         &uc UC_PT_O_CIRCUMFLEX  &trans  &trans
+        &trans  &uc UC_PT_A_TILDE       &trans  &uc UC_PT_E_ACUTE  &trans  &trans                            &trans  &uc UC_PT_U_ACUTE  &uc UC_PT_I_ACUTE  &uc UC_PT_OA          &trans  &trans
+        &trans  &uc UC_PT_AA            &trans  &uc UC_PT_E_CIRCUMFLEX  &trans  &trans                            &trans  &trans         &trans         &uc UC_PT_O_TILDE      &trans  &trans
+        &trans  &uc UC_PT_A_GRAVE       &trans  &uc UC_PT_C_CEDILLA    &trans  &trans  &trans    &trans          &trans  &trans         &trans         &trans               &trans  &trans
+                            &trans  &trans         &trans  &trans  &trans    &kp LEFT_SHIFT  &trans  &trans         &trans         &trans
             >;
         };
 
