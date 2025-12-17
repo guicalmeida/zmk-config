@@ -17,6 +17,7 @@
 &uc {
     default-mode = <UC_MODE_LINUX>;  // Use Linux IBus mode
     linux-key = <LC(LS(U))>;         // Ctrl+Shift+U (default, but explicit)
+    minimum-length = <4>;  // Force 4-digit padding
 };
 
 
